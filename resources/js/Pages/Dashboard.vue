@@ -3,7 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/inertia-vue3';
 import {reactive} from 'vue'
 
-
+//En este objeto se van a guardar los datos del correo
 let mail=reactive({
     asunto:'',
     destinatario:'',

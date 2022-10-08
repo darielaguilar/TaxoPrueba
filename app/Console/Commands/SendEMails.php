@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Models\User;
+
+//Comando para enviar todos los correos 
 class SendEMails extends Command
 {
     /**
