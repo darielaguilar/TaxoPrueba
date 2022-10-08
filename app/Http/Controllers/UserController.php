@@ -58,6 +58,12 @@ class UserController extends Controller
         return Inertia::render('/',['users'=>User::all()]);
     }
 
+    public function delete(User $user){
+        $user->delete();
+
+        return redirect()->route(route: '/users')
+    }
+
     public function update(Request $request){
         return null;
     }
