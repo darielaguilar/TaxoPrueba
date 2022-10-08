@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\UserController;
+
 use App\Models\User;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -32,10 +35,12 @@ Route::get('/dashboard', function () {
 
 Route::get('/users',function (){
     return Inertia::render('Users',[
-        'users' => User::all(),
+        'users' => User::paginate(10),
         'paginate' => User::paginate(10)
 
     ]);
 })->name('users');
+
+
 
 require __DIR__.'/auth.php';
