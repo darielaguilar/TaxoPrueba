@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Auth\UserController as AuthUserController;
 use App\Http\Controllers\UserController;
-
+use App\Jobs\SendMail;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
@@ -115,5 +115,13 @@ Route::put('/users',function(Request $request){
         ->paginate(10),
     ]) */;
 })->name('users');
+
+
+Route::post('/dashboard',function(Request $request){
+    dump($request);
+    
+    SendMail::dispatch($request->input('asunto'),$request->input('destinatario',),$request->input('cuerpo'),$request->input('email'));
+    Inertia::render('Email',$request->mail);
+})->name('dashboard');
 
 require __DIR__.'/auth.php';

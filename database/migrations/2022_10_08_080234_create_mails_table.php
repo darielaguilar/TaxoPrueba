@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('mails', function (Blueprint $table) {
             $table->id();
+            $table->string('asunto');
+            $table->string('destinatario');
+            $table->text('cuerpo');
+            $table->string('estado')->default('pendiente');
             $table->timestamps();
         });
     }
